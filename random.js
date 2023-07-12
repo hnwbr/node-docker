@@ -37,3 +37,22 @@ const a = [...Array(n)].map((value, index) => {
 // console.info(tstamp_post - tstamp_pre)
 
 console.info(JSON.stringify(payloads, null, 4))
+
+for (const _p of payloads) {
+  fetch(`http://localhost:8000/notes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(_p),
+    signal: AbortSignal.timeout(15000),
+  })
+    .then(async (response) => {
+      console.info(`POST status: ${response.status}`)
+      return
+    })
+    .catch((error) => {
+      console.error(`undiciFetch POST error: ${error}`)
+      return
+    })
+}
