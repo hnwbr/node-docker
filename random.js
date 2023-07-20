@@ -1,6 +1,6 @@
 const chance = require('chance').Chance()
 
-const n = chance.natural({ min: 2, max: 10 })
+const n = parseInt(process.env.NUM) ?? chance.natural({ min: 2, max: 10 })
 const payloads = []
 const payload = {}
 

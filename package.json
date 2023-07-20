@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "random": "node random.js",
+    "random100": "NUM=100 node random.js",
+    "random1000": "NUM=1000 node random.js",
     "debug": "nodemon --inspect=0.0.0.0:9229 -L server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
